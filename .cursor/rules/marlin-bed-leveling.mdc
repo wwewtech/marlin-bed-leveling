@@ -1,0 +1,12 @@
+---
+description: Calibrate Marlin firmware bed leveling (UBL, Bilinear, Manual Mesh) with an agent
+globs: **/*.{gcode,cfg,py,js,ts,json,yaml,yml}
+alwaysApply: false
+---
+# Marlin Bed Leveling Rules
+- Never move Z without a known-good offset.
+- Always identify leveling type (UBL/Bilinear/Manual) and setup first.
+- Build mesh using UBL phase workflow (G29 P0/P1/P3). Use M421 edits without LCD.
+- Validate meshes using G26 test prints.
+- Remember EEPROM (M500) and slot management. Never use M502 without approval.
+- Startup G-code must have G29 L0 + G29 J or M420 S1 to load mesh.

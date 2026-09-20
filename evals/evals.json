@@ -1,0 +1,27 @@
+{
+  "evals": [
+    {
+      "prompt": "I have an Ender 3 with a BLTouch probe but no LCD screen. I want to set up UBL bed leveling from scratch using OctoPrint.",
+      "files": [],
+      "id": 1,
+      "expected_output": "Agent identifies the setup (UBL, BLTouch probe, no LCD, OctoPrint terminal). Starts with baseline check and NOZZLE_TO_PROBE_OFFSET verification. Skips P2 (requires LCD), uses G29 P0 then G29 P1 for auto-probe, G29 P3 for smart-fill of unreachable points, M421 for manual mesh edits. Sets fade with G29 F10.0, saves with G29 S0 then M500, activates with G29 A. Provides startup G-code with G29 L0 and G29 J.",
+      "name": "ubl_setup_no_lcd"
+    },
+    {
+      "prompt": "After running G29 P1 and getting a mesh, my prints still have poor adhesion in the front-left corner but good adhesion everywhere else.",
+      "files": [],
+      "id": 2,
+      "expected_output": "Agent recommends running G26 C P T3.0 validation pattern to visually identify problem regions. For the front-left area showing gaps (too high), suggests G29 P4 T or M421 I<col> J<row> Z<negative_offset> to lower those mesh points. Re-runs validation after adjustment. Saves with G29 S0 + M500.",
+      "name": "poor_first_layer_regions"
+    },
+    {
+      "prompt": "I accidentally ran M502 and it wiped my perfectly tuned mesh and all settings. How do I recover?",
+      "files": [],
+      "id": 3,
+      "expected_output": "Agent asks if M500 was run after M502 (which would have persisted the wipe to EEPROM). If not, suggests M501 to reload from EEPROM. If already saved, the mesh is gone and must be rebuilt. Reminds about EEPROM slot discipline — suggests saving known-good meshes to specific slots (G29 S0, G29 S1) to avoid future data loss. Never runs M502 without explicit approval.",
+      "name": "accidental_m502_recovery"
+    }
+  ],
+  "skill_name": "marlin-bed-leveling",
+  "version": "1.0.0"
+}

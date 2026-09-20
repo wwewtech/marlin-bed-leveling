@@ -1,0 +1,51 @@
+name: Validate Skill
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Validate SKILL.md
+        run: |
+          if [ ! -f "SKILL.md" ]; then
+            echo "Error: SKILL.md not found in root"
+            exit 1
+          fi
+          
+          # Check for YAML frontmatter
+          if ! head -n 1 SKILL.md | grep -q "^---$"; then
+            echo "Error: SKILL.md missing YAML frontmatter"
+            exit 1
+          fi
+          
+          # Check for name in frontmatter
+          if ! grep -q "^name:" SKILL.md; then
+            echo "Error: SKILL.md missing 'name' in frontmatter"
+            exit 1
+          fi
+          
+          # Check for description in frontmatter
+          if ! grep -q "^description:" SKILL.md; then
+            echo "Error: SKILL.md missing 'description' in frontmatter"
+            exit 1
+          fi
+          
+          # Validate skills/marlin-bed-leveling/SKILL.md exists and is identical
+          if [ ! -f "skills/marlin-bed-leveling/SKILL.md" ]; then
+            echo "Error: skills/marlin-bed-leveling/SKILL.md not found"
+            exit 1
+          fi
+          
+          if ! cmp -s SKILL.md skills/marlin-bed-leveling/SKILL.md; then
+            echo "Error: SKILL.md and skills/marlin-bed-leveling/SKILL.md are not identical"
+            exit 1
+          fi
+          
+          echo "Validation passed successfully!"

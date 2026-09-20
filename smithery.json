@@ -1,0 +1,17 @@
+{
+  "name": "marlin-bed-leveling",
+  "version": "1.0.0",
+  "description": "Calibrate Marlin firmware bed leveling (UBL, Bilinear, Manual Mesh) with an agent",
+  "tags": [
+    "3d-printing",
+    "marlin",
+    "firmware",
+    "gcode",
+    "bed-leveling",
+    "agent-skills",
+    "claude-code",
+    "cursor",
+    "antigravity"
+  ],
+  "author": "Pavel Lebedev <pasha20051344@gmail.com>"
+}

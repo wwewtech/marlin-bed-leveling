@@ -1,0 +1,26 @@
+{
+  "name": "@wwewtech/marlin-bed-leveling",
+  "version": "1.0.0",
+  "description": "Calibrate Marlin firmware bed leveling (UBL, Bilinear, Manual Mesh) with an agent",
+  "author": "Pavel Lebedev <pasha20051344@gmail.com> (https://wwew.tech)",
+  "license": "MIT",
+  "keywords": [
+    "agent-skills",
+    "skills-sh",
+    "claude-code",
+    "antigravity",
+    "cursor",
+    "windsurf",
+    "marlin",
+    "3d-printing",
+    "bed-leveling",
+    "ubl",
+    "gcode",
+    "octoprint",
+    "firmware"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wwewtech/marlin-bed-leveling.git"
+  }
+}

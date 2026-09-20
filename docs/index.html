@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marlin Bed Leveling | wwewtech Agent Skills</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --bg-panel: #09090b;
+            --text-main: #ededed;
+            --text-muted: #a1a1aa;
+            --border: #27272a;
+            --accent: #ffffff;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .hero {
+            padding: 6rem 0 4rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-bottom: 3rem;
+        }
+
+        .install-box {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .install-box .prompt {
+            color: var(--text-muted);
+            user-select: none;
+        }
+
+        .section {
+            padding: 4rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 2rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.1em 0.3em;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .workflow {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .step {
+            background-color: var(--bg-panel);
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.25rem;
+            border-radius: 99px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .step-arrow {
+            color: var(--text-muted);
+        }
+
+        footer {
+            padding: 4rem 0;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">wwewtech <span>/</span> marlin-bed-leveling</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1 class="title">Marlin Bed Leveling</h1>
+            <p class="subtitle">AI agent skill for driving the full Marlin firmware bed leveling calibration loop: UBL phase workflow, validation prints, mesh edits, and EEPROM management.</p>
+            <div class="install-box">
+                <span class="prompt">$</span>
+                <span>npx skills add wwewtech/marlin-bed-leveling</span>
+            </div>
+            
+            <div class="workflow">
+                <div class="step">Configure</div>
+                <div class="step-arrow">→</div>
+                <div class="step">Probe</div>
+                <div class="step-arrow">→</div>
+                <div class="step">Validate</div>
+                <div class="step-arrow">→</div>
+                <div class="step">Fine-tune</div>
+                <div class="step-arrow">→</div>
+                <div class="step">Save</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>UBL Workflow Phases</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>G29 P0 / P1</h3>
+                    <p>Initialize and auto-probe. Zero the mesh (<code>P0</code>) to prepare a clean slate, then run the automated probing (<code>P1</code>) to build the baseline topology.</p>
+                </div>
+                <div class="card">
+                    <h3>G29 P3 / P4</h3>
+                    <p>Smart-fill unreachable points (<code>P3</code>) that the probe can't access. Fine-tune specific bad regions manually (<code>P4 T</code>) for the perfect first layer.</p>
+                </div>
+                <div class="card">
+                    <h3>M421 / G26</h3>
+                    <p>Edit mesh points directly with <code>M421</code> (crucial for LCD-less setups). Run <code>G26 C P</code> to print a validation pattern and identify areas needing adjustment.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            &copy; 2026 wwewtech (Pavel Lebedev). Released under the MIT License.
+        </div>
+    </footer>
+</body>
+</html>

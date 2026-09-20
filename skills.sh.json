@@ -1,0 +1,7 @@
+{
+  "name": "marlin-bed-leveling",
+  "group": {
+    "title": "3D Printing & Marlin Firmware",
+    "description": "Calibrate Marlin firmware bed leveling (UBL, Bilinear, Manual Mesh): G29 phases, G26 validation prints, M421 mesh edits, and EEPROM slot management."
+  }
+}
