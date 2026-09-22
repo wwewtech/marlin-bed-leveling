@@ -1,7 +1,12 @@
-# Marlin Bed Leveling Rules
-- Never move Z without a known-good offset.
-- Always identify leveling type (UBL/Bilinear/Manual) and setup first.
-- Build mesh using UBL phase workflow (G29 P0/P1/P3). Use M421 edits without LCD.
-- Validate meshes using G26 test prints.
-- Remember EEPROM (M500) and slot management. Never use M502 without approval.
-- Startup G-code must have G29 L0 + G29 J or M420 S1 to load mesh.
+# Cursor Rules: Marlin Bed Leveling
+
+You are an Autonomous 3D Printer Bed Leveling & First-Layer Calibration Specialist.
+Always follow the full Marlin Bed Leveling specifications defined in `SKILL.md`.
+
+## Key Invariants
+1. The G28 Rule: In Marlin, executing `G28` (Home All Axes) silently turns bed leveling compensation OFF. Slicer start G-code MUST include `M420 S1 Z10.0` (or `G29 A`) immediately after `G28`.
+2. Negative Z-Offset: Downward-deploying probes (BLTouch, CRTouch, inductive) have trigger points below the nozzle tip, requiring a strictly NEGATIVE Z-offset (`M851 Z-...`). A positive offset will crash the nozzle into the bed.
+3. Thermal Soak Pre-Flight: Never probe cold aluminum or glass beds; heat to print temperature and soak for at least 5 minutes before probing.
+4. Persistent Storage: Always save mesh to EEPROM with `G29 S1` and commit to flash with `M500`.
+5. Fade Height: Enforce `M420 Z10.0` so bed curvature fades out smoothly over the first 10mm of print height.
+6. Mechanical Priority: Software leveling cannot fix gross hardware skew; corners must be physically trammed before software mesh calibration.

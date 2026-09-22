@@ -1,7 +1,13 @@
 {
-  "name": "marlin-bed-leveling",
-  "group": {
-    "title": "3D Printing & Marlin Firmware",
-    "description": "Calibrate Marlin firmware bed leveling (UBL, Bilinear, Manual Mesh): G29 phases, G26 validation prints, M421 mesh edits, and EEPROM slot management."
-  }
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "3D Printing & Additive Manufacturing",
+      "description": "Deterministic Marlin firmware bed leveling, 5-phase UBL calibration, Z-probe offsets, and first-layer adhesion tuning.",
+      "skills": [
+        "marlin-bed-leveling"
+      ]
+    }
+  ]
 }

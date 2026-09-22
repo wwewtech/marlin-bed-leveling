@@ -1,27 +1,22 @@
 {
   "evals": [
     {
-      "prompt": "I have an Ender 3 with a BLTouch probe but no LCD screen. I want to set up UBL bed leveling from scratch using OctoPrint.",
-      "files": [],
       "id": 1,
-      "expected_output": "Agent identifies the setup (UBL, BLTouch probe, no LCD, OctoPrint terminal). Starts with baseline check and NOZZLE_TO_PROBE_OFFSET verification. Skips P2 (requires LCD), uses G29 P0 then G29 P1 for auto-probe, G29 P3 for smart-fill of unreachable points, M421 for manual mesh edits. Sets fade with G29 F10.0, saves with G29 S0 then M500, activates with G29 A. Provides startup G-code with G29 L0 and G29 J.",
-      "name": "ubl_setup_no_lcd"
+      "name": "post-homing-m420-leveling-restoration",
+      "prompt": "I set up a 5x5 UBL mesh on my Ender 3, but every time I start a print from Cura, the printer seems to completely ignore the mesh and prints crooked. Here is my start G-code: G28; G1 Z0.2 F3000.",
+      "expected_output": "The agent immediately identifies that executing G28 (Home All Axes) in Marlin automatically disables bed leveling compensation. It instructs the user to insert M420 S1 Z10.0 immediately after G28 in their slicer start G-code to restore the active mesh and set a 10mm fade height."
     },
     {
-      "prompt": "After running G29 P1 and getting a mesh, my prints still have poor adhesion in the front-left corner but good adhesion everywhere else.",
-      "files": [],
       "id": 2,
-      "expected_output": "Agent recommends running G26 C P T3.0 validation pattern to visually identify problem regions. For the front-left area showing gaps (too high), suggests G29 P4 T or M421 I<col> J<row> Z<negative_offset> to lower those mesh points. Re-runs validation after adjustment. Saves with G29 S0 + M500.",
-      "name": "poor_first_layer_regions"
+      "name": "z-probe-offset-polarity-and-paper-feeler",
+      "prompt": "I just installed a genuine BLTouch. When I home Z, the pin triggers, but when the print starts, the nozzle hovers 1.8mm above the bed in mid-air. What should my M851 Z offset command be?",
+      "expected_output": "The agent explains that for downward-deploying probes, the trigger occurs below the nozzle, requiring a strictly NEGATIVE Z-offset. It calculates the necessary adjustment (e.g. M851 Z-1.80), provides the paper feeler gauge drag procedure, and reminds the user to commit the value to EEPROM with M500."
     },
     {
-      "prompt": "I accidentally ran M502 and it wiped my perfectly tuned mesh and all settings. How do I recover?",
-      "files": [],
       "id": 3,
-      "expected_output": "Agent asks if M500 was run after M502 (which would have persisted the wipe to EEPROM). If not, suggests M501 to reload from EEPROM. If already saved, the mesh is gone and must be rebuilt. Reminds about EEPROM slot discipline — suggests saving known-good meshes to specific slots (G29 S0, G29 S1) to avoid future data loss. Never runs M502 without explicit approval.",
-      "name": "accidental_m502_recovery"
+      "name": "thermal-soak-preflight-and-ubl-extrapolation",
+      "prompt": "Can I speed up UBL calibration by probing the mesh cold right after powering on, and only heating the bed when the actual print starts?",
+      "expected_output": "The agent strictly warns against cold bed probing. It explains that aluminum heatbeds and spring-steel PEI sheets warp significantly under thermal expansion (0.10 - 0.20mm error). It mandates pre-heating to target print temperature (e.g. 60C) with a 5-minute thermal soak before running G29 P1, followed by G29 P3 T0.0 for perimeter extrapolation."
     }
-  ],
-  "skill_name": "marlin-bed-leveling",
-  "version": "1.0.0"
+  ]
 }

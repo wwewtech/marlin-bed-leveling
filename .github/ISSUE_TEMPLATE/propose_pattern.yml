@@ -1,0 +1,18 @@
+name: Propose Printer / Slicer Macro
+description: Suggest a new start G-code macro, probe mount offset, or printer calibration preset
+labels: ["enhancement", "preset"]
+body:
+  - type: input
+    id: printer_type
+    attributes:
+      label: Printer Model & Kinematics
+      placeholder: e.g. Voron Switchwire / Cartesian
+    validations:
+      required: true
+  - type: textarea
+    id: gcode_macro
+    attributes:
+      label: Proposed G-Code Sequence
+      description: Provide the complete verified macro sequence.
+    validations:
+      required: true

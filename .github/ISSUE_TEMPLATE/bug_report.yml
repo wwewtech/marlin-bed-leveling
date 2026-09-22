@@ -1,0 +1,26 @@
+name: Bug Report
+description: Report a first-layer defect, probe collision, or G-code bug in marlin-bed-leveling
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve marlin-bed-leveling!
+  - type: input
+    id: printer_model
+    attributes:
+      label: 3D Printer & Probe Model
+      placeholder: e.g. Ender 3 V2 with BLTouch v3.1 / Marlin 2.1.2
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue Description
+      description: Describe what happened (e.g. nozzle scraped bed, leveling turned off after homing).
+    validations:
+      required: true
+  - type: textarea
+    id: start_gcode
+    attributes:
+      label: Start G-Code & Terminal Log
+      description: Paste your slicer start G-code macro and output from M420 V or G29 T.

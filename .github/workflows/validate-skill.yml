@@ -2,50 +2,45 @@ name: Validate Skill
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Validate SKILL.md
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate SKILL.md Frontmatter & Symmetry
         run: |
-          if [ ! -f "SKILL.md" ]; then
-            echo "Error: SKILL.md not found in root"
-            exit 1
-          fi
-          
-          # Check for YAML frontmatter
-          if ! head -n 1 SKILL.md | grep -q "^---$"; then
-            echo "Error: SKILL.md missing YAML frontmatter"
-            exit 1
-          fi
-          
-          # Check for name in frontmatter
-          if ! grep -q "^name:" SKILL.md; then
-            echo "Error: SKILL.md missing 'name' in frontmatter"
-            exit 1
-          fi
-          
-          # Check for description in frontmatter
-          if ! grep -q "^description:" SKILL.md; then
-            echo "Error: SKILL.md missing 'description' in frontmatter"
-            exit 1
-          fi
-          
-          # Validate skills/marlin-bed-leveling/SKILL.md exists and is identical
-          if [ ! -f "skills/marlin-bed-leveling/SKILL.md" ]; then
-            echo "Error: skills/marlin-bed-leveling/SKILL.md not found"
-            exit 1
-          fi
-          
-          if ! cmp -s SKILL.md skills/marlin-bed-leveling/SKILL.md; then
-            echo "Error: SKILL.md and skills/marlin-bed-leveling/SKILL.md are not identical"
-            exit 1
-          fi
-          
-          echo "Validation passed successfully!"
+          python -c "
+          import re, hashlib, sys
+
+          with open('SKILL.md', 'r', encoding='utf-8') as f:
+              content = f.read()
+
+          # 1. Frontmatter check
+          assert content.startswith('---'), 'SKILL.md must start with YAML frontmatter'
+          match = re.match(r'^---\s*\n(.*?)\n---', content, re.DOTALL)
+          assert match, 'Failed to parse YAML frontmatter'
+          fm = match.group(1)
+
+          # 2. Required fields
+          assert re.search(r'^name:\s*\S+', fm, re.M), 'Missing name in frontmatter'
+          assert re.search(r'^description:\s*\S+', fm, re.M), 'Missing description in frontmatter'
+
+          # 3. Symmetry check
+          h1 = hashlib.sha256(open('SKILL.md', 'rb').read()).hexdigest()
+          h2 = hashlib.sha256(open('skills/marlin-bed-leveling/SKILL.md', 'rb').read()).hexdigest()
+          assert h1 == h2, f'Symmetry check failed! Root hash {h1} != skills hash {h2}'
+
+          print('✓ YAML Frontmatter is valid!')
+          print('✓ SHA256 symmetry check passed!')
+          print('✓ SKILL.md passed all validation checks!')
+          "

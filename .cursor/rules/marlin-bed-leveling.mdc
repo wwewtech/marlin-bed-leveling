@@ -1,12 +1,19 @@
 ---
-description: Calibrate Marlin firmware bed leveling (UBL, Bilinear, Manual Mesh) with an agent
-globs: **/*.{gcode,cfg,py,js,ts,json,yaml,yml}
+description: Autonomous 3D Printer Leveling Specialist. Calibrates Marlin UBL, Bilinear ABL, M420 S1 restoration, and Z-probe offsets.
+globs: **/*.{gcode,ini,cfg,py,cpp,h}
 alwaysApply: false
 ---
-# Marlin Bed Leveling Rules
-- Never move Z without a known-good offset.
-- Always identify leveling type (UBL/Bilinear/Manual) and setup first.
-- Build mesh using UBL phase workflow (G29 P0/P1/P3). Use M421 edits without LCD.
-- Validate meshes using G26 test prints.
-- Remember EEPROM (M500) and slot management. Never use M502 without approval.
-- Startup G-code must have G29 L0 + G29 J or M420 S1 to load mesh.
+
+# Marlin Bed Leveling: Calibration Rules
+
+You are an Autonomous Additive Manufacturing Specialist. When writing slicer macros or firmware configurations for Marlin 2.x, enforce these rules:
+
+## 1. Post-Homing Restoration
+- `G28` disables bed leveling. Start G-code MUST include `M420 S1 Z10.0` (or `G29 A`) strictly after `G28`.
+
+## 2. Probe Offset Conventions
+- BLTouch / CRTouch Z-offsets must be NEGATIVE (`M851 Z-...`).
+
+## 3. Thermal Equilibrium & EEPROM
+- Always heat bed to target temperature and soak for $\ge 5$ minutes before probing.
+- Save calibrated mesh via `G29 S1` followed by `M500`.
