@@ -22,12 +22,12 @@ This registry catalogs **`marlin-bed-leveling`** across every AI agent directory
 
 | Repository | Focus / Category | Status |
 | :--- | :--- | :--- |
-| **sickn33/agentic-awesome-skills** (46,500+ ⭐) | AAS Core / `skills/marlin-bed-leveling/SKILL.md` | Prepared / Active |
-| **ComposioHQ/awesome-claude-skills** (75,000+ ⭐) | `Hardware, 3D Printing & Manufacturing` | Prepared / Active |
-| **heilcheng/awesome-agent-skills** (6,200+ ⭐) | `Hardware & Additive Manufacturing` | Prepared / Active |
-| **VoltAgent/awesome-agent-skills** (34,500+ ⭐) | `Community Skills -> Hardware & 3D Printing` | Prepared / Active |
-| **PatrickJS/awesome-cursorrules** (10,000+ ⭐) | `3D Printing / G-code / Embedded` (`rules/marlin-bed-leveling.mdc`) | Prepared / Active |
-| **BehiSecc/awesome-claude-skills** (10,000+ ⭐) | `Hardware & Maker Skills` | Prepared / Active |
+| **sickn33/agentic-awesome-skills** (46,500+ ⭐) | AAS Core / `skills/marlin-bed-leveling/SKILL.md` | [PR #1562](https://github.com/sickn33/agentic-awesome-skills/pull/1562) |
+| **ComposioHQ/awesome-claude-skills** (75,000+ ⭐) | `Hardware, 3D Printing & Manufacturing` | [PR #1962](https://github.com/ComposioHQ/awesome-claude-skills/pull/1962) |
+| **heilcheng/awesome-agent-skills** (6,200+ ⭐) | `Hardware & Additive Manufacturing` | [PR #517](https://github.com/heilcheng/awesome-agent-skills/pull/517) |
+| **VoltAgent/awesome-agent-skills** (34,500+ ⭐) | `Community Skills -> Hardware & 3D Printing` | [PR #1092](https://github.com/VoltAgent/awesome-agent-skills/pull/1092) |
+| **PatrickJS/awesome-cursorrules** (10,000+ ⭐) | `3D Printing / G-code / Embedded` (`rules/marlin-bed-leveling.mdc`) | [PR #391](https://github.com/PatrickJS/awesome-cursorrules/pull/391) |
+| **BehiSecc/awesome-claude-skills** (10,000+ ⭐) | `Hardware & Maker Skills` | [PR #747](https://github.com/BehiSecc/awesome-claude-skills/pull/747) |
 | **rohitg00/awesome-claude-code-toolkit** (2,300+ ⭐) | `Skills -> Hardware Automation` | Prepared / Active |
 | **Prat011/awesome-llm-skills** (1,700+ ⭐) | `3D Printing & Motion Control Skills` | Prepared / Active |
 | **libukai/awesome-agent-skills** (5,100+ ⭐) | `精选技能 -> 3D打印与固件调试 (3D Printing & Firmware)` | Prepared / Active |
