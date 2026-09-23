@@ -28,14 +28,12 @@ This registry catalogs **`marlin-bed-leveling`** across every AI agent directory
 | **VoltAgent/awesome-agent-skills** (34,500+ ⭐) | `Community Skills -> Hardware & 3D Printing` | [PR #1092](https://github.com/VoltAgent/awesome-agent-skills/pull/1092) |
 | **PatrickJS/awesome-cursorrules** (10,000+ ⭐) | `3D Printing / G-code / Embedded` (`rules/marlin-bed-leveling.mdc`) | [PR #391](https://github.com/PatrickJS/awesome-cursorrules/pull/391) |
 | **BehiSecc/awesome-claude-skills** (10,000+ ⭐) | `Hardware & Maker Skills` | [PR #747](https://github.com/BehiSecc/awesome-claude-skills/pull/747) |
-| **rohitg00/awesome-claude-code-toolkit** (2,300+ ⭐) | `Skills -> Hardware Automation` | Prepared / Active |
-| **Prat011/awesome-llm-skills** (1,700+ ⭐) | `3D Printing & Motion Control Skills` | Prepared / Active |
-| **libukai/awesome-agent-skills** (5,100+ ⭐) | `精选技能 -> 3D打印与固件调试 (3D Printing & Firmware)` | Prepared / Active |
-| **skillmatic-ai/awesome-agent-skills** (670+ ⭐) | `Popular Collections / 3D Printing` | Prepared / Active |
-| **philipbankier/awesome-agent-skills** | `Domain-Specific -> Digital Fabrication` | Prepared / Active |
-| **karanb192/awesome-claude-skills** | `3D Printing & Embedded Motion` | Prepared / Active |
-| **spencerpauly/awesome-cursor-skills** | `Hardware & G-code Calibration` | Prepared / Active |
-| **jqueryscript/awesome-claude-code** (510+ ⭐) | `Agent Skills -> Maker Tools` | Prepared / Active |
+| **rohitg00/awesome-claude-code-toolkit** (2,300+ ⭐) | `Skills -> 3D Printing & Embedded` | [PR #805](https://github.com/rohitg00/awesome-claude-code-toolkit/pull/805) |
+| **Prat011/awesome-llm-skills** (1,700+ ⭐) | `Development & Code Tools` | [PR #259](https://github.com/Prat011/awesome-llm-skills/pull/259) |
+| **libukai/awesome-agent-skills** (5,100+ ⭐) | `精选技能 -> 编程开发` | [PR #166](https://github.com/libukai/awesome-agent-skills/pull/166) |
+| **skillmatic-ai/awesome-agent-skills** (670+ ⭐) | `Popular Collections` | [PR #183](https://github.com/skillmatic-ai/awesome-agent-skills/pull/183) |
+| **spencerpauly/awesome-cursor-skills** | `Utilities` | [PR #88](https://github.com/spencerpauly/awesome-cursor-skills/pull/88) |
+| **jqueryscript/awesome-claude-code** (510+ ⭐) | `Agent Skills` | [PR #690](https://github.com/jqueryscript/awesome-claude-code/pull/690) |
 | **awesome-3d-printing** | `3D printing software, slicers, firmware tools` | Target Catalog |
 | **awesome-reprap** | `Open-source 3D printer mechanics, motion control` | Target Catalog |
 | **awesome-gcode** | `CNC, 3D printer G-code analysis and post-processors` | Target Catalog |
