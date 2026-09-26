@@ -3,7 +3,7 @@
   "displayName": "Marlin Bed Leveling",
   "version": "1.0.0",
   "description": "Calibrate Marlin firmware bed leveling (UBL, Bilinear, Manual Mesh) with an agent: G29 phase workflow, G26 validation prints, M421 mesh edits, and probe offsets.",
-  "author": "wwewtech (Pavel Lebedev)",
+  "author": "wwew.tech",
   "repository": "https://github.com/wwewtech/marlin-bed-leveling",
   "homepage": "https://skills.sh/wwewtech/marlin-bed-leveling",
   "license": "MIT",
