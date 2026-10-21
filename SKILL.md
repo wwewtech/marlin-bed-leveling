@@ -1,6 +1,6 @@
 ---
 name: marlin-bed-leveling
-description: "Calibrates Marlin 2.x 3D printer firmware bed leveling: Unified Bed Leveling (UBL), Bilinear ABL, M420 S1 post-homing, Z-probe offsets, G26 mesh prints, and EEPROM slots. Trigger phrases: marlin bed leveling, ubl calibration, m420 s1, z probe offset, g29 bed level, first layer adhesion."
+description: "Calibrates Marlin 2.x 3D printer firmware bed leveling with Unified Bed Leveling, Bilinear ABL, M420 S1 post-homing sequencing, Z-probe offset derivation, G26 validation mesh prints and EEPROM slot management. Trigger phrases: marlin bed leveling, ubl calibration, m420 s1, z probe offset, g29 bed level, first layer adhesion."
 category: development
 risk: safe
 source: community
