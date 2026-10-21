@@ -173,3 +173,17 @@ Before emitting any Marlin leveling advice, macro, or slicer start code:
 > 3. Verify probe repeatability using `M48 P10` (standard deviation must be $\le 0.005\text{mm}$).
 > 4. Probe grid with `G29 P1`, extrapolate unprobed corners with `G29 P3 T0.0`, save to slot 1 with `G29 S1`, and commit to flash with `M500`.
 > 5. In your slicer start G-code, place `M420 S1 Z10.0` immediately after `G28` to restore the active mesh with a 10mm fade height.
+
+---
+
+## Original Addendum: G-code Sequence Verification Protocol
+
+This addendum is unique to the wwewtech canonical repository and documents the
+verification protocol applied after any mesh recalibration.
+
+1. Issue G28 and confirm homing completes without a Z fault.
+2. Issue G29 with a four-point probe order and capture the reported mean.
+3. Issue G26 and confirm the validation mesh prints a uniform single layer.
+4. Persist with M500 and read back the stored compensation with M503.
+
+Record the mean residual and the pass/fail state in the commissioning log.
